@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agarwal Physiotherapy Clinic — घर पर फिजियोथेरेपी, हल्द्वानी</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Mukta:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf7f2;
+  --bg-2:#f3ece1;
+  --surface:#fffdfa;
+  --border:rgba(60,40,20,.13);
+  --text:#241c15;
+  --text-dim:#6b5d4f;
+  --clay:#b8532b;
+  --clay-dim:#f6e3d8;
+  --teal:#1f5f5b;
+  --teal-dim:#dcebe8;
+  --gold:#a8802c;
+  --ok:#2f6b45;
+  --shadow:0 1px 2px rgba(60,40,20,.06),0 8px 24px -12px rgba(60,40,20,.22);
+  --font-head:'Tiro Devanagari Hindi',Georgia,serif;
+  --font-body:'Mukta','Noto Sans Devanagari','Nirmala UI',system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#151311;
+    --bg-2:#1d1a17;
+    --surface:#211d19;
+    --border:rgba(255,240,220,.13);
+    --text:#f2e9dd;
+    --text-dim:#b3a496;
+    --clay:#e0865c;
+    --clay-dim:#3a261d;
+    --teal:#6fbdb4;
+    --teal-dim:#1e3331;
+    --gold:#d7b063;
+    --ok:#7cc194;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -12px rgba(0,0,0,.6);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:
+    radial-gradient(900px 400px at 85% -10%, var(--clay-dim) 0%, transparent 60%),
+    radial-gradient(700px 350px at -10% 5%, var(--teal-dim) 0%, transparent 55%),
+    var(--bg);
+  color:var(--text);
+  font-family:var(--font-body);
+  font-size:16.5px;
+  line-height:1.62;
+  font-weight:400;
+}
+.wrap{max-width:920px;margin:0 auto;padding:0 18px 80px}
+
+/* ---------- top bar ---------- */
+.top{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+.top-in{
+  max-width:920px;margin:0 auto;padding:10px 18px;
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:9px;min-width:0}
+.brand svg{flex:0 0 auto}
+.brand b{font-family:var(--font-head);font-size:17px;font-weight:400;letter-spacing:.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media(max-width:620px){.brand b{font-size:14.5px}}
+.tabs{display:flex;gap:4px;margin-left:auto;background:var(--bg-2);padding:4px;border-radius:12px;border:1px solid var(--border)}
+.tabs button{
+  font-family:var(--font-body);font-size:14.5px;font-weight:600;
+  border:0;background:transparent;color:var(--text-dim);
+  padding:7px 13px;border-radius:9px;cursor:pointer;transition:.18s;
+}
+.tabs button[aria-selected="true"]{background:var(--surface);color:var(--text);box-shadow:var(--shadow)}
+
+/* ---------- shared ---------- */
+.pane{display:none;animation:fade .35s ease both}
+.pane.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+
+.section-label{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--text-dim);margin:44px 0 12px;
+}
+.section-label i{width:8px;height:8px;border-radius:50%;background:var(--clay);display:block}
+h2{font-family:var(--font-head);font-weight:400;font-size:26px;line-height:1.28;margin:0 0 14px;letter-spacing:.2px}
+h3{font-family:var(--font-body);font-weight:700;font-size:16.5px;margin:0 0 5px}
+p{margin:0 0 12px}
+.dim{color:var(--text-dim)}
+
+.card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:16px;padding:18px 18px;box-shadow:var(--shadow);
+}
+
+/* ---------- hero ---------- */
+.hero{
+  margin-top:26px;padding:30px 26px 28px;border-radius:22px;
+  background:linear-gradient(160deg,var(--surface),var(--bg-2));
+  border:1px solid var(--border);box-shadow:var(--shadow);
+  position:relative;overflow:hidden;
+}
+.hero:before{
+  content:"";position:absolute;inset:0 0 auto auto;width:220px;height:220px;
+  background:radial-gradient(circle at 70% 30%, var(--clay-dim), transparent 70%);
+  pointer-events:none;
+}
+.hero h1{
+  font-family:var(--font-head);font-weight:400;font-size:34px;line-height:1.2;
+  margin:0 0 10px;letter-spacing:.2px;max-width:16em;
+}
+.hero p{font-size:17px;color:var(--text-dim);max-width:34em;margin-bottom:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.chip{
+  font-size:13.5px;font-weight:600;padding:6px 12px;border-radius:999px;
+  background:var(--teal-dim);color:var(--teal);border:1px solid transparent;
+}
+.chip.clay{background:var(--clay-dim);color:var(--clay)}
+.cta-row{display:flex;flex-wrap:wrap;gap:10px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  font-family:var(--font-body);font-size:16px;font-weight:700;
+  padding:13px 20px;border-radius:12px;border:1px solid transparent;
+  cursor:pointer;text-decoration:none;transition:transform .15s, box-shadow .15s;
+}
+.btn:active{transform:translateY(1px)}
+.btn-wa{background:#0f6b53;color:#fff;box-shadow:0 6px 18px -8px rgba(15,107,83,.9)}
+.btn-call{background:var(--surface);color:var(--text);border-color:var(--border);box-shadow:var(--shadow)}
+.btn-sm{font-size:14px;padding:9px 14px;border-radius:10px}
+.btn-ghost{background:transparent;color:var(--text-dim);border-color:var(--border)}
+
+/* ---------- grids ---------- */
+.grid{display:grid;gap:12px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:720px){.g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:460px){.g2,.g3,.g4{grid-template-columns:1fr}}
+
+.svc{
+  background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:14px 15px;min-width:0;
+}
+.svc b{display:block;font-size:15.5px;margin-bottom:3px}
+.svc span{font-size:13.8px;color:var(--text-dim);line-height:1.45;display:block}
+
+.steps{counter-reset:s;display:grid;gap:12px;grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:720px){.steps{grid-template-columns:1fr}}
+.step{
+  counter-increment:s;position:relative;padding:16px 16px 16px 18px;
+  background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  border-left:3px solid var(--teal);min-width:0;
+}
+.step:before{
+  content:counter(s);font-family:var(--font-head);font-size:13px;color:#fff;
+  background:var(--teal);width:24px;height:24px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;margin-bottom:8px;
+}
+
+.area-tags{display:flex;flex-wrap:wrap;gap:8px}
+.area-tags span{
+  font-size:14px;padding:6px 12px;border-radius:8px;
+  background:var(--bg-2);border:1px solid var(--border);color:var(--text-dim);
+}
+
+.price{display:grid;gap:12px;grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:720px){.price{grid-template-columns:1fr}}
+.pcard{
+  background:var(--surface);border:1px solid var(--border);border-radius:16px;
+  padding:18px;display:flex;flex-direction:column;gap:8px;min-width:0;
+}
+.pcard.hi{border-color:var(--clay);background:linear-gradient(170deg,var(--clay-dim),var(--surface) 60%)}
+.pcard h3{font-family:var(--font-head);font-weight:400;font-size:19px;margin:0}
+.pcard ul{margin:0;padding-left:18px;font-size:14.4px;color:var(--text-dim)}
+.pcard ul li{margin-bottom:3px}
+.pcard .fee{font-size:14px;font-weight:700;color:var(--clay);margin-top:auto}
+
+details{
+  background:var(--surface);border:1px solid var(--border);border-radius:12px;
+  padding:0;margin-bottom:9px;overflow:hidden;
+}
+details summary{
+  cursor:pointer;padding:14px 16px;font-weight:600;font-size:15.5px;list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+}
+details summary::-webkit-details-marker{display:none}
+details summary:after{content:"+";font-family:var(--font-head);color:var(--clay);font-size:20px;line-height:1}
+details[open] summary:after{content:"–"}
+details .dbody{padding:0 16px 15px;color:var(--text-dim);font-size:15px}
+
+/* ---------- record pane ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:22px}
+@media(max-width:640px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:13px 14px;min-width:0}
+.stat b{display:block;font-family:var(--font-head);font-size:26px;line-height:1.1;font-weight:400}
+.stat span{font-size:12.6px;color:var(--text-dim);letter-spacing:.02em}
+
+form.new{display:grid;gap:10px;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:6px}
+@media(max-width:560px){form.new{grid-template-columns:1fr}}
+label.f{display:flex;flex-direction:column;gap:4px;font-size:13.4px;font-weight:600;color:var(--text-dim);min-width:0}
+input,textarea,select{
+  font-family:var(--font-body);font-size:16px;color:var(--text);
+  background:var(--bg);border:1px solid var(--border);border-radius:10px;
+  padding:10px 12px;width:100%;min-width:0;
+}
+input:focus,textarea:focus{outline:2px solid var(--teal);outline-offset:1px;border-color:transparent}
+.full{grid-column:1/-1}
+
+.plist{display:grid;gap:11px;margin-top:6px}
+.pt{
+  background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:15px 16px;min-width:0;
+}
+.pt-top{display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.pt-top .nm{font-weight:700;font-size:16.5px;min-width:0;overflow-wrap:anywhere}
+.pt-top .ph{font-size:14px;color:var(--text-dim);text-decoration:none}
+.pt-top .ph:hover{color:var(--clay)}
+.pt-top .right{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.bar{height:7px;background:var(--bg-2);border-radius:99px;overflow:hidden;margin:11px 0 7px}
+.bar i{display:block;height:100%;background:var(--teal);border-radius:99px;transition:width .3s}
+.bar i.done{background:var(--ok)}
+.pt-meta{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13.6px;color:var(--text-dim)}
+.pt-meta b{color:var(--text);font-weight:700}
+.due{color:var(--clay);font-weight:700}
+.paid{color:var(--ok);font-weight:700}
+.pt-note{font-size:13.6px;color:var(--text-dim);margin-top:7px;overflow-wrap:anywhere}
+.mini{
+  font-family:var(--font-body);font-size:13px;font-weight:600;cursor:pointer;
+  border:1px solid var(--border);background:var(--bg-2);color:var(--text);
+  padding:6px 11px;border-radius:9px;
+}
+.mini.go{background:var(--teal);border-color:transparent;color:#fff}
+.mini.rm{color:var(--clay);background:transparent}
+.empty{
+  text-align:center;padding:34px 20px;color:var(--text-dim);
+  border:1px dashed var(--border);border-radius:14px;font-size:15px;
+}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.hint{font-size:13.2px;color:var(--text-dim);margin-top:10px;line-height:1.5}
+footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--border);font-size:13.6px;color:var(--text-dim)}
+.toast{
+  position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);
+  background:var(--text);color:var(--bg);padding:11px 18px;border-radius:11px;
+  font-size:14.5px;font-weight:600;opacity:0;pointer-events:none;transition:.25s;z-index:99;
+  max-width:90vw;text-align:center;
+}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="top-in">
+    <div class="brand">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" style="color:var(--clay)">
+        <path d="M3 12h3l2-5 3 10 2.5-7 1.8 4H21"/>
+      </svg>
+      <b>Agarwal Physiotherapy Clinic</b>
+    </div>
+    <div class="tabs" role="tablist">
+      <button role="tab" aria-selected="true" data-pane="pub">मरीज़ों के लिए</button>
+      <button role="tab" aria-selected="false" data-pane="rec">मेरा रिकॉर्ड</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ============ PUBLIC PANE ============ -->
+<div class="pane on" id="pub">
+
+  <div class="hero">
+    <h1>घुटने, कमर और गर्दन के दर्द का इलाज — आपके घर पर</h1>
+    <p>फिजियोथेरेपिस्ट घर आकर इलाज करते हैं। ऑपरेशन के बाद की देखभाल, पैरालिसिस और स्ट्रोक रिहैब, और बुज़ुर्गों के लिए — बिस्तर से उठे बिना इलाज।</p>
+    <div class="chips">
+      <span class="chip">घर पर विज़िट ₹600</span>
+      <span class="chip clay">क्लिनिक में ₹300</span>
+      <span class="chip">10 सिटिंग का पैकेज</span>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-wa" id="waMain" href="#" target="_blank" rel="noopener">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.7-.1a11 11 0 0 1-4-2.4 10 10 0 0 1-2.2-3.2c-.3-.7-.3-1.3-.2-1.7.1-.4.6-1.1 1-1.3.2-.1.4-.1.6 0l.9 1.5c.1.2 0 .4-.1.5l-.5.6c-.1.1-.2.3-.1.5.3.7 1.6 2.3 2.9 2.9.2.1.4 0 .5-.1l.6-.6c.1-.2.3-.2.5-.1l1.5.9c.2.1.2.3.1.5Z"/></svg>
+        WhatsApp पर बात करें
+      </a>
+      <a class="btn btn-call" id="telMain" href="#">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 5c0 8 7 15 15 15l2-4-5-2-2 2a13 13 0 0 1-6-6l2-2-2-5Z"/></svg>
+        8077441606
+      </a>
+    </div>
+  </div>
+
+  <div class="section-label"><i></i>किन समस्याओं में मदद</div>
+  <h2>जिनके लिए घर पर इलाज सबसे बेहतर है</h2>
+  <div class="grid g3">
+    <div class="svc"><b>घुटने का दर्द</b><span>घिसाव, आर्थराइटिस, चढ़ने-उतरने में तकलीफ़</span></div>
+    <div class="svc"><b>कमर और गर्दन का दर्द</b><span>लंबे समय का दर्द, अकड़न, झुकने में परेशानी</span></div>
+    <div class="svc"><b>स्लिप डिस्क / साइटिका</b><span>पैर में जाने वाला दर्द, झनझनाहट</span></div>
+    <div class="svc"><b>ऑपरेशन के बाद</b><span>घुटना या कूल्हा बदलने के बाद चलना सीखना</span></div>
+    <div class="svc"><b>पैरालिसिस / स्ट्रोक</b><span>हाथ-पैर की ताकत और रोज़मर्रा के काम</span></div>
+    <div class="svc"><b>फ्रोज़न शोल्डर</b><span>हाथ ऊपर उठाने में दर्द और रुकावट</span></div>
+    <div class="svc"><b>गर्भावस्था और प्रसव के बाद</b><span>कमर दर्द, पेट की मांसपेशियों की मज़बूती</span></div>
+    <div class="svc"><b>बुज़ुर्गों की देखभाल</b><span>संतुलन, गिरने से बचाव, चलने-फिरने की ताकत</span></div>
+    <div class="svc"><b>खेल में चोट</b><span>मोच, मांसपेशी की चोट, वापस खेल में लौटना</span></div>
+  </div>
+
+  <div class="section-label"><i></i>इलाज कैसे होता है</div>
+  <h2>तीन कदम</h2>
+  <div class="steps">
+    <div class="step"><h3>पहला संदेश या कॉल</h3><p class="dim" style="font-size:14.5px;margin:0">समस्या और पते की जानकारी। समय तय होता है — ज़्यादातर अगले दिन।</p></div>
+    <div class="step"><h3>पहली विज़िट पर जाँच</h3><p class="dim" style="font-size:14.5px;margin:0">दर्द की जाँच, हिलने-डुलने की जाँच, और लिखा हुआ इलाज प्लान — कितनी सिटिंग और क्या सुधार होगा।</p></div>
+    <div class="step"><h3>कोर्स और व्यायाम</h3><p class="dim" style="font-size:14.5px;margin:0">हर सिटिंग पर हाथ से इलाज और घर के व्यायाम। व्यायाम की छोटी वीडियो WhatsApp पर भेजी जाती है।</p></div>
+  </div>
+
+  <div class="section-label"><i></i>क्षेत्र</div>
+  <h2>हल्द्वानी में कहाँ-कहाँ आते हैं</h2>
+  <div class="area-tags">
+    <span>कालाढूंगी रोड</span><span>नैनीताल रोड</span><span>रामपुर रोड</span>
+    <span>बरेली रोड</span><span>कुसुमखेड़ा</span><span>कठघरिया</span>
+    <span>मुखानी</span><span>बनभूलपुरा</span><span>टिकोनिया</span>
+    <span>हीरानगर</span><span>आज़ादनगर</span><span>काठगोदाम</span>
+  </div>
+  <p class="hint">आपका इलाका सूची में नहीं है? एक संदेश भेजिए — ज़्यादातर हल्द्वानी में विज़िट हो जाती है।</p>
+
+  <div class="section-label"><i></i>पैकेज</div>
+  <h2>इलाज कैसे ले सकते हैं</h2>
+  <div class="price">
+    <div class="pcard">
+      <h3>क्लिनिक में विज़िट</h3>
+      <ul><li>जाँच और सलाह</li><li>एक बार का इलाज</li><li>घर के व्यायाम</li></ul>
+      <div class="fee">₹300 प्रति विज़िट</div>
+    </div>
+    <div class="pcard hi">
+      <h3>घर पर विज़िट</h3>
+      <ul><li>फिजियोथेरेपिस्ट घर आते हैं</li><li>जाँच, इलाज और व्यायाम</li><li>बुज़ुर्ग और ऑपरेशन के बाद के मरीज़ों के लिए</li></ul>
+      <div class="fee">₹600 प्रति विज़िट</div>
+    </div>
+    <div class="pcard">
+      <h3>10 सिटिंग का कोर्स</h3>
+      <ul><li>पूरा इलाज प्लान</li><li>हर सिटिंग पर प्रगति जाँच</li><li>व्यायाम की वीडियो</li><li>क्लिनिक में ₹3,000 · घर पर ₹6,000</li></ul>
+      <div class="fee">कोर्स पर बात कीजिए</div>
+    </div>
+  </div>
+  <p class="hint">क्लिनिक में एक सिटिंग ₹300 और घर पर ₹600। 10 सिटिंग का कोर्स एक साथ लेने पर फीस की बात फ़ोन पर की जा सकती है। पुरानी समस्या के लिए महीने का प्लान भी उपलब्ध है — 8077441606 पर पूछिए।</p>
+
+  <div class="section-label"><i></i>आम सवाल</div>
+  <h2>जो लोग अक्सर पूछते हैं</h2>
+  <details><summary>क्या मशीन या सामान घर लाना पड़ता है?</summary><div class="dbody">नहीं। ज़्यादातर इलाज हाथ से होता है। कुछ ख़ास मामलों में जो छोटा सामान चाहिए, पहले ही बता दिया जाता है।</div></details>
+  <details><summary>एक सिटिंग में कितना समय लगता है?</summary><div class="dbody">लगभग 40 से 45 मिनट। पहली विज़िट थोड़ी लंबी होती है, क्योंकि उसमें पूरी जाँच होती है।</div></details>
+  <details><summary>क्या घरवाले साथ बैठ सकते हैं?</summary><div class="dbody">हाँ, बिलकुल। घरवालों को व्यायाम दिखाना फ़ायदेमंद रहता है, ताकि बाकी दिनों में भी मदद कर सकें।</div></details>
+  <details><summary>ऑपरेशन के बाद कब शुरू कर सकते हैं?</summary><div class="dbody">डॉक्टर की सलाह के अनुसार। ज़्यादातर मामलों में ऑपरेशन के कुछ दिन बाद ही शुरू किया जा सकता है — जितनी जल्दी शुरू हो, उतना अच्छा नतीजा मिलता है।</div></details>
+  <details><summary>फीस कितनी है और भुगतान कैसे होता है?</summary><div class="dbody">क्लिनिक में एक सिटिंग ₹300 और घर पर एक विज़िट ₹600। भुगतान हर विज़िट पर, या 10 सिटिंग का कोर्स एक साथ लेने पर पूरे कोर्स का। कोर्स पर फीस की बात फ़ोन पर की जा सकती है।</div></details>
+
+  <div class="section-label"><i></i>संपर्क</div>
+  <h2>अपॉइंटमेंट लेने के लिए</h2>
+  <div class="card">
+    <p style="margin-bottom:14px">सबसे आसान तरीका — WhatsApp पर एक संदेश। लिखिए: किसे तकलीफ़ है, क्या तकलीफ़ है, और इलाका। समय वापस बता दिया जाएगा।</p>
+    <div class="cta-row">
+      <a class="btn btn-wa" id="waFoot" href="#" target="_blank" rel="noopener">WhatsApp: 8077441606</a>
+      <a class="btn btn-call" id="telFoot" href="#">कॉल करें</a>
+      <button class="btn btn-ghost btn-sm" id="copyMsg">संदेश कॉपी करें</button>
+    </div>
+  </div>
+
+  <footer>
+    Agarwal Physiotherapy Clinic · घर पर फिजियोथेरेपी सेवा, हल्द्वानी (उत्तराखंड) · 8077441606<br>
+    फिजियोथेरेपी डॉक्टर की सलाह का विकल्प नहीं है। गंभीर चोट, बुख़ार या अचानक कमज़ोरी में पहले डॉक्टर से मिलें।
+  </footer>
+</div>
+
+<!-- ============ RECORD PANE ============ -->
+<div class="pane" id="rec">
+  <h2 style="margin-top:24px">मेरा रिकॉर्ड</h2>
+  <p class="dim" style="font-size:15px">मरीज़, सिटिंग और पैसा — सब यहीं। डेटा आपके इसी फ़ोन के ब्राउज़र में सेव रहता है, कहीं भेजा नहीं जाता। हफ़्ते में एक बार "बैकअप" बटन दबा दीजिए।</p>
+
+  <div class="stats">
+    <div class="stat"><b id="sTotal">0</b><span>कुल मरीज़</span></div>
+    <div class="stat"><b id="sActive">0</b><span>चल रहे कोर्स</span></div>
+    <div class="stat"><b id="sToday">0</b><span>आज की विज़िट</span></div>
+    <div class="stat"><b id="sDue">₹0</b><span>बाक़ी पैसा</span></div>
+  </div>
+
+  <div class="section-label"><i></i>नया मरीज़</div>
+  <details id="addBox">
+    <summary>नया मरीज़ जोड़ें</summary>
+    <div class="dbody" style="padding:0 16px 16px">
+      <form class="new" id="newForm" autocomplete="off">
+        <label class="f">नाम<input name="name" required placeholder="जैसे: रमेश चंद्र"></label>
+        <label class="f">फ़ोन<input name="phone" inputmode="tel" placeholder="10 अंक"></label>
+        <label class="f">तकलीफ़<input name="problem" placeholder="जैसे: घुटने का दर्द"></label>
+        <label class="f">कुल सिटिंग<input name="total" type="number" min="1" value="10"></label>
+        <label class="f">कुल फीस (₹)<input name="fee" type="number" min="0" value="0"></label>
+        <label class="f">जमा हुआ (₹)<input name="paid" type="number" min="0" value="0"></label>
+        <label class="f full">नोट<textarea name="notes" rows="2" placeholder="जैसे: दायाँ घुटना, सीढ़ी चढ़ने में दर्द"></textarea></label>
+        <div class="full"><button class="btn btn-wa btn-sm" type="submit">सेव करें</button></div>
+      </form>
+    </div>
+  </details>
+
+  <div class="section-label"><i></i>मरीज़ों की सूची</div>
+  <div class="plist" id="list"></div>
+
+  <div class="toolbar">
+    <button class="mini" id="expCsv">CSV डाउनलोड (Excel)</button>
+    <button class="mini" id="backup">बैकअप फ़ाइल</button>
+    <button class="mini" id="restoreBtn">बैकअप वापस लाएँ</button>
+    <input type="file" id="restoreFile" accept="application/json" hidden>
+  </div>
+  <p class="hint">"आज की विज़िट" के लिए हर सिटिंग पर "+1 सिटिंग" दबाइए — तारीख़ अपने आप जुड़ जाती है।</p>
+</div>
+
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  "use strict";
+  var PHONE = "918077441606";
+  var msgText = "नमस्ते, मुझे घर पर फिजियोथेरेपी चाहिए।\nसमस्या: \nकिसके लिए: \nइलाका: ";
+  var waHref = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(msgText);
+  ["waMain","waFoot"].forEach(function(id){
+    var el = document.getElementById(id); if(el) el.href = waHref;
+  });
+  ["telMain","telFoot"].forEach(function(id){
+    var el = document.getElementById(id); if(el) el.href = "tel:+918077441606";
+  });
+
+  var toastEl = document.getElementById("toast"), toastT;
+  function toast(msg){
+    toastEl.textContent = msg; toastEl.classList.add("on");
+    clearTimeout(toastT); toastT = setTimeout(function(){ toastEl.classList.remove("on"); }, 2200);
+  }
+
+  document.getElementById("copyMsg").addEventListener("click", function(){
+    var t = msgText;
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(function(){ toast("संदेश कॉपी हो गया"); },
+        function(){ fallbackCopy(t); });
+    } else { fallbackCopy(t); }
+  });
+  function fallbackCopy(t){
+    var ta = document.createElement("textarea");
+    ta.value = t; ta.style.position="fixed"; ta.style.opacity="0";
+    document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); toast("संदेश कॉपी हो गया"); }
+    catch(e){ toast("कॉपी नहीं हुआ"); }
+    document.body.removeChild(ta);
+  }
+
+  /* ---- tabs ---- */
+  var tabs = document.querySelectorAll(".tabs button");
+  Array.prototype.forEach.call(tabs, function(b){
+    b.addEventListener("click", function(){
+      Array.prototype.forEach.call(tabs, function(x){ x.setAttribute("aria-selected","false"); });
+      b.setAttribute("aria-selected","true");
+      document.querySelectorAll(".pane").forEach(function(p){ p.classList.remove("on"); });
+      document.getElementById(b.dataset.pane).classList.add("on");
+      window.scrollTo({top:0, behavior:"smooth"});
+    });
+  });
+
+  /* ---- storage ---- */
+  var KEY = "physio_records_v1";
+  function load(){
+    try{ return JSON.parse(localStorage.getItem(KEY)) || []; }catch(e){ return []; }
+  }
+  function save(arr){
+    try{ localStorage.setItem(KEY, JSON.stringify(arr)); }
+    catch(e){ toast("सेव नहीं हो पाया — ब्राउज़र की जगह भर गई है"); }
+  }
+  function today(){ var d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+  function fmtDate(iso){
+    if(!iso) return "";
+    var p = iso.split("-"); if(p.length!==3) return iso;
+    return p[2]+"/"+p[1]+"/"+p[0];
+  }
+  function inr(n){ return "₹" + (Number(n)||0).toLocaleString("en-IN"); }
+
+  var listEl = document.getElementById("list");
+
+  function render(){
+    var rows = load();
+    rows.sort(function(a,b){ return (b.created||0)-(a.created||0); });
+
+    var total = rows.length;
+    var active = rows.filter(function(r){ return (r.done||0) < (r.total||0); }).length;
+    var t = today();
+    var todayVisits = rows.reduce(function(s,r){
+      return s + (r.visits||[]).filter(function(d){ return d===t; }).length; }, 0);
+    var due = rows.reduce(function(s,r){
+      return s + Math.max(0, (Number(r.fee)||0) - (Number(r.paid)||0)); }, 0);
+
+    document.getElementById("sTotal").textContent = total;
+    document.getElementById("sActive").textContent = active;
+    document.getElementById("sToday").textContent = todayVisits;
+    document.getElementById("sDue").textContent = inr(due);
+
+    if(!rows.length){
+      listEl.innerHTML = '<div class="empty">अभी कोई मरीज़ नहीं जुड़ा। ऊपर "नया मरीज़ जोड़ें" खोलकर पहला नाम डालिए।</div>';
+      return;
+    }
+
+    listEl.innerHTML = "";
+    rows.forEach(function(r){
+      var done = Number(r.done)||0, tot = Number(r.total)||0;
+      var pct = tot ? Math.min(100, Math.round(done/tot*100)) : 0;
+      var bal = Math.max(0, (Number(r.fee)||0) - (Number(r.paid)||0));
+      var lastVisit = (r.visits && r.visits.length) ? fmtDate(r.visits[r.visits.length-1]) : "—";
+
+      var el = document.createElement("div");
+      el.className = "pt";
+      el.innerHTML =
+        '<div class="pt-top">' +
+          '<div><div class="nm"></div>' +
+            (r.phone ? '<a class="ph"></a>' : '') +
+          '</div>' +
+          '<div class="right">' +
+            '<button class="mini go" data-act="sit">+1 सिटिंग</button>' +
+            '<button class="mini" data-act="pay">पैसा जोड़ें</button>' +
+            '<button class="mini rm" data-act="del">हटाएँ</button>' +
+          '</div>' +
+        '</div>' +
+        '<div class="bar"><i style="width:'+pct+'%"></i></div>' +
+        '<div class="pt-meta">' +
+          '<span>सिटिंग <b>'+done+' / '+tot+'</b></span>' +
+          '<span>फीस <b>'+inr(r.fee)+'</b></span>' +
+          '<span>जमा <span class="paid">'+inr(r.paid)+'</span></span>' +
+          '<span>बाक़ी <span class="due">'+inr(bal)+'</span></span>' +
+          '<span>पिछली विज़िट <b>'+lastVisit+'</b></span>' +
+        '</div>' +
+        (r.problem ? '<div class="pt-note">तकलीफ़: '+esc(r.problem)+'</div>' : '') +
+        (r.notes ? '<div class="pt-note">नोट: '+esc(r.notes)+'</div>' : '');
+
+      el.querySelector(".nm").textContent = r.name || "(बिना नाम)";
+      if(r.phone){
+        var a = el.querySelector(".ph");
+        a.textContent = r.phone;
+        a.href = "tel:" + r.phone.replace(/[^0-9+]/g,"");
+      }
+      if(done >= tot){ el.querySelector(".bar i").classList.add("done"); }
+
+      el.querySelector('[data-act="sit"]').addEventListener("click", function(){ addSitting(r.id); });
+      el.querySelector('[data-act="pay"]').addEventListener("click", function(){ addPay(r.id); });
+      el.querySelector('[data-act="del"]').addEventListener("click", function(){ del(r.id, r.name); });
+      listEl.appendChild(el);
+    });
+  }
+
+  function esc(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+    });
+  }
+
+  function addSitting(id){
+    var rows = load();
+    rows.forEach(function(r){
+      if(r.id === id){
+        r.done = (Number(r.done)||0) + 1;
+        r.visits = r.visits || [];
+        r.visits.push(today());
+      }
+    });
+    save(rows); render(); toast("सिटिंग जुड़ गई");
+  }
+
+  function addPay(id){
+    var rows = load(), cur = null;
+    rows.forEach(function(r){ if(r.id === id) cur = r; });
+    if(!cur) return;
+    var bal = Math.max(0, (Number(cur.fee)||0) - (Number(cur.paid)||0));
+    var v = window.prompt("कितना पैसा मिला? (बाक़ी " + inr(bal) + ")", bal || "");
+    if(v === null) return;
+    var n = Number(String(v).replace(/[^0-9.]/g,""));
+    if(!n || n < 0){ toast("रकम ठीक नहीं है"); return; }
+    cur.paid = (Number(cur.paid)||0) + n;
+    save(rows); render(); toast(inr(n) + " जोड़ दिया");
+  }
+
+  function del(id, name){
+    if(!window.confirm("इस मरीज़ का रिकॉर्ड हटाना है?\n" + (name||""))) return;
+    save(load().filter(function(r){ return r.id !== id; }));
+    render(); toast("हटा दिया");
+  }
+
+  document.getElementById("newForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    var f = e.target, d = new FormData(f);
+    var name = String(d.get("name")||"").trim();
+    if(!name){ toast("नाम ज़रूरी है"); return; }
+    var rows = load();
+    rows.push({
+      id: "p" + Date.now() + Math.random().toString(36).slice(2,7),
+      name: name,
+      phone: String(d.get("phone")||"").trim(),
+      problem: String(d.get("problem")||"").trim(),
+      total: Math.max(1, Number(d.get("total"))||10),
+      done: 0,
+      fee: Math.max(0, Number(d.get("fee"))||0),
+      paid: Math.max(0, Number(d.get("paid"))||0),
+      notes: String(d.get("notes")||"").trim(),
+      visits: [],
+      created: Date.now()
+    });
+    save(rows);
+    f.reset();
+    f.querySelector('[name="total"]').value = 10;
+    document.getElementById("addBox").open = false;
+    render(); toast("मरीज़ जुड़ गया");
+  });
+
+  /* ---- export / backup ---- */
+  function dl(filename, text, type){
+    var blob = new Blob([text], {type: type || "text/plain;charset=utf-8"});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url; a.download = filename;
+    document.body.appendChild(a); a.click();
+    setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 400);
+  }
+
+  document.getElementById("expCsv").addEventListener("click", function(){
+    var rows = load();
+    if(!rows.length){ toast("कोई मरीज़ नहीं"); return; }
+    var head = ["नाम","फोन","तकलीफ़","कुल सिटिंग","हुई सिटिंग","फीस","जमा","बाक़ी","पिछली विज़िट","नोट"];
+    var lines = [head.join(",")];
+    rows.forEach(function(r){
+      var bal = Math.max(0,(Number(r.fee)||0)-(Number(r.paid)||0));
+      var cells = [r.name, r.phone, r.problem, r.total, r.done, r.fee, r.paid, bal,
+        ((r.visits&&r.visits.length)?r.visits[r.visits.length-1]:""), r.notes];
+      lines.push(cells.map(function(c){
+        c = (c===null||c===undefined)?"":String(c);
+        return '"' + c.replace(/"/g,'""') + '"';
+      }).join(","));
+    });
+    dl("physio-mareez-"+today()+".csv", "\ufeff"+lines.join("\r\n"), "text/csv;charset=utf-8");
+    toast("CSV डाउनलोड हो गया");
+  });
+
+  document.getElementById("backup").addEventListener("click", function(){
+    var rows = load();
+    if(!rows.length){ toast("कोई मरीज़ नहीं"); return; }
+    dl("physio-backup-"+today()+".json", JSON.stringify(rows, null, 2), "application/json");
+    toast("बैकअप फ़ाइल बन गई");
+  });
+
+  document.getElementById("restoreBtn").addEventListener("click", function(){
+    document.getElementById("restoreFile").click();
+  });
+  document.getElementById("restoreFile").addEventListener("change", function(e){
+    var file = e.target.files && e.target.files[0];
+    if(!file) return;
+    var fr = new FileReader();
+    fr.onload = function(){
+      try{
+        var incoming = JSON.parse(fr.result);
+        if(!Array.isArray(incoming)) throw new Error("bad");
+        var rows = load(), have = {};
+        rows.forEach(function(r){ have[r.id] = 1; });
+        var added = 0;
+        incoming.forEach(function(r){
+          if(r && r.id && !have[r.id]){ rows.push(r); added++; }
+        });
+        save(rows); render();
+        toast(added + " रिकॉर्ड जुड़े");
+      }catch(err){ toast("यह बैकअप फ़ाइल नहीं है"); }
+      e.target.value = "";
+    };
+    fr.readAsText(file);
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
